@@ -10,7 +10,7 @@
       <NuxtLink to="/contact">Contact</NuxtLink>
     </div>
     <div class="footer-bottom">
-      <p>&copy; {{ year }} DR. BATSAIKHAN OOKHNOI. ALL RIGHTS RESERVED. &nbsp;|&nbsp; PUBLISHED BY <strong style="color: rgba(255,255,255,0.8);">RENNAB</strong></p>
+      <p>&copy; {{ year }} DR. BATSAIKHAN OOKHNOI. ALL RIGHTS RESERVED. &nbsp;|&nbsp; CREATED BY <strong style="color: rgba(255,255,255,0.8);">RENNAB</strong></p>
     </div>
   </footer>
 </template>

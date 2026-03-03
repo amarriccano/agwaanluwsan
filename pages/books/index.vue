@@ -19,26 +19,33 @@
 
     <div v-else class="books-grid">
       <div v-for="book in books" :key="book._id" class="book-card">
-        <div class="book-cover" :style="{ background: book.coverGradient || 'linear-gradient(135deg,#162447,#4a148c)' }">
-          <span class="book-cover-title">{{ book.title }}</span>
+        <div class="book-cover">
+          <img
+            v-if="book.coverImage"
+            :src="book.coverImage"
+            :alt="book.title"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+          />
+          <div
+            v-else
+            :style="{ background: book.coverGradient || 'linear-gradient(135deg,#162447,#4a148c)', height:'100%', display:'flex', alignItems:'flex-end', padding:'1rem' }"
+          >
+            <span class="book-cover-title">{{ book.title }}</span>
+          </div>
         </div>
         <div class="book-info">
           <span class="book-year">{{ book.year }} · {{ book.category }}</span>
           <h3 class="book-title">{{ book.title }}</h3>
-          <p class="book-subtitle">{{ book.subtitle }}</p>
+          <p class="book-subtitle">{{ book.description }}</p>
           <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.5rem;">
             {{ book.publisher }}<br />
             {{ book.pages }} pp. · {{ book.language }}<br />
-            ISBN {{ book.isbn }}
           </p>
-          <p class="book-price">{{ formatPrice(book.price) }}</p>
+          <p class="book-price">{{ formatPrice(book.variants[0].price) }}</p>
           <div class="book-actions">
-            <button class="btn btn-sm" @click="addBook(book)" :disabled="isInCart(book._id)">
-              {{ isInCart(book._id) ? '✓ In Cart' : 'Add to Cart' }}
-            </button>
-            <button v-if="isInCart(book._id)" class="btn-outline btn-sm" @click="$router.push('/books/cart')">
-              View Cart
-            </button>
+            <NuxtLink :to="'/books/' + book._id" class="btn btn-sm">
+              View & Order
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -58,7 +65,7 @@
 useHead({ title: 'Books — Batsaikhan Ookhnoi' })
 
 const api = useApi()
-const { addToCart, isInCart, totalItems } = useCart()
+const { totalItems } = useCart()
 
 const books = ref<any[]>([])
 const loading = ref(true)
@@ -77,12 +84,5 @@ onMounted(async () => {
 
 function formatPrice(price: number) {
   return price?.toLocaleString('mn-MN') + ' ₮'
-}
-
-function addBook(book: any) {
-  // Adapt API book shape to cart (uses _id as id)
-  addToCart({ ...book, id: book._id })
-  notification.value = `"${book.title}" added to cart.`
-  setTimeout(() => { notification.value = '' }, 3000)
 }
 </script>
