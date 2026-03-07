@@ -155,7 +155,8 @@ async function placeOrder() {
       address: form.value.address,
       notes: form.value.notes,
       items: cartItems.value.map(i => ({
-        bookId: i.book.id,
+        bookId: i.book.bookId,
+        variant: i.book.variant,
         title: i.book.title,
         price: i.book.price,
         quantity: i.quantity
