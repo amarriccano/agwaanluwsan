@@ -170,7 +170,8 @@ async function placeOrder() {
       orderNumber: res.orderNumber || res._id?.slice(-8).toUpperCase(),
       date: new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
       items: cartItems.value.map(i => ({
-        id: i.book.id,
+        id: i.book.bookId,
+        variant: i.book.variant,
         title: i.book.title,
         quantity: i.quantity,
         subtotal: i.book.price * i.quantity

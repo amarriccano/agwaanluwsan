@@ -56,7 +56,7 @@
         Orders are fulfilled locally by Dr. Batsaikhan Ookhnoi. No online payment required.<br />
         Payment is arranged upon delivery or pickup in Ulaanbaatar.
       </p>
-      <NuxtLink to="/books/cart" class="btn">🛒 View Cart ({{ totalItems }})</NuxtLink>
+      <NuxtLink to="/books/cart" class="btn">🛒 ({{ totalItems }})</NuxtLink>
     </div>
   </div>
 </template>

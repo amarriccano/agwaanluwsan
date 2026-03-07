@@ -134,6 +134,8 @@ function addToCart() {
   if (!selectedVariant.value || selectedVariant.value.status === 'soldout') return
   cartAdd({
     id: cartItemId(),
+    bookId: book.value._id,
+    variant: selectedVariant.value.format,
     title: `${book.value.title} (${formatLabel(selectedVariant.value.format)})`,
     price: selectedVariant.value.price,
     publisher: book.value.publisher ?? '',
