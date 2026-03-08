@@ -51,5 +51,10 @@ export default defineNuxtConfig({
         '/contact'
       ]
     }
+  },
+  vite: {
+  build: {
+    target: 'es2015'
   }
+}
 })
