@@ -12,6 +12,12 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      script: [
+        {
+          innerHTML: `if (!Object.hasOwn) { Object.hasOwn = function(obj, key) { return Object.prototype.hasOwnProperty.call(obj, key); }; }`,
+          type: 'text/javascript',
+        }
+      ],
       title: 'Batsaikhan Ookhnoi | Historian & Author',
       meta: [
         { charset: 'utf-8' },
@@ -32,7 +38,7 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap'
         }
-      ]
+      ],
     }
   },
   nitro: {
