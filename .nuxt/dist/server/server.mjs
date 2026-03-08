@@ -1,1 +1,1 @@
-export { default } from "file:///Users/test/Documents/Documents%20-%20Amar%E2%80%99s%20MacBook%20Pro/Works/Softwares/Websites/Batsaikhan%20info/frontend/batsaikhan-full/batsaikhan-ookhnoi/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
+export { default } from "file:///Users/test/Documents/Documents%20-%20Amar%E2%80%99s%20MacBook%20Pro/Works/Softwares/Websites/Batsaikhan%20info/frontend/batsaikhan-ookhnoi/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"

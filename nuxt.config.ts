@@ -1,3 +1,4 @@
+import legacy from '@vitejs/plugin-legacy'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -59,8 +60,14 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-  build: {
-    target: 'es2015'
+    plugins: [
+      legacy({
+        targets: ['ios >= 12'],
+        additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+      })
+    ],
+    build: {
+      target: 'es2015'
+    }
   }
-}
 })
